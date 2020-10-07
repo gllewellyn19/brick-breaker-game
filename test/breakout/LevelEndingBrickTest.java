@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import util.DukeApplicationTest;
 
-class GameEndingBrickTest extends DukeApplicationTest {
+class LevelEndingBrickTest extends DukeApplicationTest {
   private final Game myGame = new Game();
   private Scene myScene;
   private Circle ballShape;

@@ -35,7 +35,7 @@ public abstract class Level implements Cloneable {
   public Level(int numLives, int level, int width, int height, Paint ballColor, Paint paddleColor,
       String paddleImage, List<Integer> locationsScoreLives, List<Brick> potentialSpecialBricks,
       String brickFileLocation, List<String> brickPatterns) {
-    gameDisplay = new GameDisplay(numLives, width, height, locationsScoreLives);
+    gameDisplay = new GameDisplay(width, height, locationsScoreLives);
     gameBrickDisplay = new GameBrickDisplay(height, width, potentialSpecialBricks,
         brickFileLocation, brickPatterns);
     this.numLives = numLives;
@@ -57,7 +57,7 @@ public abstract class Level implements Cloneable {
     this.root = root;
     ball.initializeBall(root);
     paddle.initializePaddle(root);
-    gameDisplay.initializeGameDisplay(root, levelNumber, currentScore);
+    gameDisplay.initializeGameDisplay(root, levelNumber, currentScore, numLives);
     gameBrickDisplay.initializeGameBrickDisplay(root);
     setupSuccessful = gameBrickDisplay.getSetupSuccessful() && gameDisplay.getSetupSuccessful() &&
         paddle.getSetupSuccessful();

@@ -100,7 +100,7 @@ public class Brick implements Cloneable{
     return scoreIncreasePerHit;
   }
 
-  public void destroyBrick(Level currentLevel) { }
+  public void destroyBrickWhenPaddleHits(Level currentLevel) { }
 
   @Override
   public Brick clone() {

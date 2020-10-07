@@ -52,18 +52,16 @@ public class GameDisplay {
   private Text scoreDisplay;
   private Text levelDisplay;
   private Text highestScoreDisplay;
-  private final int numLives;
   private final List<Integer> locationsScoreLivesHighLevel;
   private boolean setupSuccessful;
   private final int frameHeight;
   private final int frameWidth;
 
-  public GameDisplay(int numLives, int width, int height, List<Integer> locationsScoreLivesHighLevel) {
+  public GameDisplay(int width, int height, List<Integer> locationsScoreLivesHighLevel) {
     makeDefaultLocationsScoreLivesIfNeeded(locationsScoreLivesHighLevel, List.of(width, height));
     this.locationsScoreLivesHighLevel = new ArrayList<>(locationsScoreLivesHighLevel);
     frameHeight = height;
     frameWidth = width;
-    this.numLives = numLives;
     setupSuccessful = true;
   }
 
@@ -71,7 +69,7 @@ public class GameDisplay {
   An initializing method that calls different methods specific to each display for the game that places
   them on the root
    */
-  protected void initializeGameDisplay(Group root, int levelNumber, int score) {
+  protected void initializeGameDisplay(Group root, int levelNumber, int score, int numLives) {
     createScoreDisplay(root, locationsScoreLivesHighLevel.get(0), locationsScoreLivesHighLevel.get(1), score);
     createLivesDisplay(root, numLives, locationsScoreLivesHighLevel.get(2));
     createHighestScoreDisplay(root, locationsScoreLivesHighLevel.get(4), locationsScoreLivesHighLevel.get(5));

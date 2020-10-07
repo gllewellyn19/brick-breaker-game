@@ -31,7 +31,7 @@ public class LevelTwo extends Level {
   public LevelTwo() {
     super(3, 2, Game.FRAME_SIZE, Game.FRAME_SIZE, Color.BLUE, Color.YELLOWGREEN,
         "paddleImages/boatPaddle.jpg", new ArrayList<>(),
-        List.of(new ExplodingBrick(), new GameEndingBrick()),
+        List.of(new ExplodingBrick(), new LevelEndingBrick()),
         "brickConfigurations/levelTwoBricks.txt",
         List.of("brickIce.jpg", "brickBranch.jpg", "brickWood.jpg"));
   }

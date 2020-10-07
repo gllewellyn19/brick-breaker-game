@@ -14,7 +14,7 @@ import java.util.List;
  * @author Grace Llewellyn and Priya Rathinavelu
  */
 
-public class GameEndingBrick extends BrickWithSpecialAction{
+public class LevelEndingBrick extends BrickWithSpecialAction{
 
   /*
    * Destroys all the bricks in the game so that the game is over

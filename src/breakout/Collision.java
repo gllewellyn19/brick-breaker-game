@@ -105,7 +105,7 @@ public class Collision {
    */
   private boolean checkBrickPaddleCollision(Brick b) {
     if (b.getBrickShape().getBoundsInParent().intersects(paddleShape.getBoundsInParent())) {
-      b.destroyBrick(currentLevel);
+      b.destroyBrickWhenPaddleHits(currentLevel);
       return true;
     }
     return false;

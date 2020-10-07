@@ -14,7 +14,7 @@ package breakout;
 public class IncreaseBallSizeBrick extends BrickWithPowerUp {
 
   @Override
-  public void destroyBrick(Level currentLevel) {
+  public void destroyBrickWhenPaddleHits(Level currentLevel) {
     currentLevel.getBall().increaseBallSize();
   }
 
