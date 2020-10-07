@@ -52,7 +52,7 @@ public class Paddle {
    * Creates the paddle and makes the paddle image equal to the given source if the source is
    * not an empty string. If the paddle image is an empty string, then sets the paddle color
    */
-  protected void initializePaddle(Group root) {
+  public void initializePaddle(Group root) {
     paddleShape = new Rectangle(xLocPaddle, yLocPaddle, DEFAULT_PADDLE_LENGTH, PADDLE_HEIGHT);
     if (!paddleImageFile.equals("")) {
       createPaddleImage(root);
@@ -61,10 +61,6 @@ public class Paddle {
     }
     paddleShape.setId("paddle");
     root.getChildren().add(paddleShape);
-  }
-
-  protected boolean getSetupSuccessful() {
-    return setupSuccessful;
   }
 
   protected void createPaddleImage(Group root) {
@@ -82,7 +78,7 @@ public class Paddle {
   /*
    * changes the size of the paddle
    */
-  protected void increasePaddleSize() {
+  public void increasePaddleSize() {
     double newPaddleSize = paddleShape.getWidth() + DEFAULT_PADDLE_SIZE_INCREASE_AMT;
     if (newPaddleSize > Game.FRAME_SIZE) {
       newPaddleSize = Game.FRAME_SIZE;
@@ -98,6 +94,10 @@ public class Paddle {
     paddleShape.setY(frameHeight - paddleShape.getHeight());
     setPaddleSizeDefault();
     setPaddleShiftDefault();
+  }
+
+  public boolean getSetupSuccessful() {
+    return setupSuccessful;
   }
 
   protected void setPaddleShiftZero() {
@@ -116,11 +116,11 @@ public class Paddle {
     this.paddleShape.setWidth(DEFAULT_PADDLE_LENGTH);
   }
 
-  protected int getPaddleShift() {
+  public int getPaddleShift() {
     return this.paddleShift;
   }
 
-  protected Rectangle getPaddleShape() {
+  public Rectangle getPaddleShape() {
     return paddleShape;
   }
 

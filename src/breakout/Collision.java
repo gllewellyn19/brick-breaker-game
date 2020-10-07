@@ -1,5 +1,7 @@
 package breakout;
 
+import breakout.Bricks.Brick;
+import breakout.Levels.Level;
 import java.util.List;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -182,7 +184,7 @@ public class Collision {
    * Checks to see what side of the rectangle (can be brick or paddle) that the ball collided with
    * and switches the x or y direction accordingly
    */
-  protected static void determineIfSwitchXOrYFromBallRectangleHit(Rectangle r, Ball b) {
+  public static void determineIfSwitchXOrYFromBallRectangleHit(Rectangle r, Ball b) {
     Circle bShape = b.getBallShape();
     if (checkInRange(r.getX(), r.getX() + r.getWidth(), bShape.getCenterX())) {
       b.switchYDirection();

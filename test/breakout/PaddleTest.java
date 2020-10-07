@@ -8,7 +8,11 @@ import javafx.scene.shape.Rectangle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * Tests for paddle
+ *
+ * @author Grace Llewellyn
+ */
 class PaddleTest {
 
   private Paddle myPaddle;

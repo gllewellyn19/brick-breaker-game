@@ -50,7 +50,7 @@ public class Ball {
   initializes the Ball object to have the default values and creates the actual ball shape and adds
   it to the root
    */
-  void initializeBall(Group root) {
+  public void initializeBall(Group root) {
     ballSpeed = DEFAULT_BALL_SPEED;
     ballShape = new Circle(xLocBall, yLocBall, radius);
     ballShape.setFill(ballColor);
@@ -59,7 +59,7 @@ public class Ball {
   }
 
 
-  protected void increaseBallSize() {
+  public void increaseBallSize() {
     double newBallRadius = ballShape.getRadius() + DEFAULT_BALL_SIZE_INC_AMOUNT;
     if (newBallRadius > Game.FRAME_SIZE / Game.FRACTION_MAX_BALL_SIZE) {
       newBallRadius = Game.FRAME_SIZE / Game.FRACTION_MAX_BALL_SIZE;
@@ -93,11 +93,11 @@ public class Ball {
     return ballShape.getCenterY() + yDirection * ballSpeed * elapsedTime;
   }
 
-  protected Circle getBallShape() {
+  public Circle getBallShape() {
     return ballShape;
   }
 
-  protected int getBallSpeed() {
+  public int getBallSpeed() {
     return ballSpeed;
   }
 
@@ -121,17 +121,17 @@ public class Ball {
     ballShape.setRadius(DEFAULT_BALL_RADIUS);
   }
 
-  protected void increaseBallSpeed() {
+  public void increaseBallSpeed() {
     this.ballSpeed = this.ballSpeed + DEFAULT_BALL_SPEED_INC_AMOUNT;
   }
 
-  protected void setXDirection(int newDir) {
+  public void setXDirection(int newDir) {
     if (checkDirectionValid(newDir)) {
       xDirection = newDir;
     }
   }
 
-  protected void setYDirection(int newDir) {
+  public void setYDirection(int newDir) {
     if (checkDirectionValid(newDir)) {
       yDirection = newDir;
     }

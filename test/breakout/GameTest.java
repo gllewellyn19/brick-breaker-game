@@ -1,5 +1,7 @@
 package breakout;
 
+import breakout.Bricks.Brick;
+import breakout.Levels.Level;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.Scene;
@@ -16,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Tests for Game class.
  *
- * @author Robert C Duvall
+ * @author Grace Llewellyn and Priya Rathinavelu
  */
 public class GameTest extends DukeApplicationTest {
     // create an instance of our game to be able to call in tests (like step())
@@ -26,9 +28,6 @@ public class GameTest extends DukeApplicationTest {
     private Circle ball;
     private Rectangle paddle;
     private Level currentLevel;
-    private Rectangle brick;
-  //  private int xDir = myGame.xDirection;
-
 
     /**
      * Start special test version of application that does not animate on its own before each test.
@@ -74,7 +73,7 @@ public class GameTest extends DukeApplicationTest {
         List<Rectangle> allBricks = new ArrayList<>();
 
         for (int t = 1; t < 22; t ++) { //hardcoded given test file
-            brick = lookup("#brick"+t).query();
+            Rectangle brick = lookup("#brick"+t).query();
             allBricks.add(brick);
         }
         //testing some bricks (first brick in a row, last brick, middle brick)
@@ -119,8 +118,8 @@ public class GameTest extends DukeApplicationTest {
     // NOTE ball isn't doing right thing
     @Test
     public void testScoreUpdate() {
-        ball.setCenterX(Game.FRAME_SIZE/2);
-        ball.setCenterY(Game.FRAME_SIZE/2); //setting ball to about to hit brick
+        ball.setCenterX(Game.FRAME_SIZE/2.0);
+        ball.setCenterY(Game.FRAME_SIZE/2.0); //setting ball to about to hit brick
         press(myScene, KeyCode.SPACE); // unpause game because starts paused
         myGame.step(1);
         myGame.step(1);

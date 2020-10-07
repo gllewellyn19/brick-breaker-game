@@ -7,6 +7,11 @@ import javafx.scene.paint.Color;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for ball
+ *
+ * @author Grace Llewellyn
+ */
 class BallTest {
 
   private Ball myBall;

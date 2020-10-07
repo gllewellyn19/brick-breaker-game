@@ -1,5 +1,9 @@
 package breakout;
 
+import breakout.Levels.Level;
+import breakout.Levels.LevelOne;
+import breakout.Levels.LevelThree;
+import breakout.Levels.LevelTwo;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -74,7 +78,7 @@ public class Game extends Application {
   /*
    * Sets up the stage size and title
    */
-  protected void setUpStage(Stage stage) {
+  public void setUpStage(Stage stage) {
     currentStage = stage;
     setupScene(FRAME_SIZE, FRAME_SIZE, BACKGROUND);
     stage.setScene(myScene);
@@ -85,7 +89,7 @@ public class Game extends Application {
   /*
    * Create the game's "scene": what shapes will be in the game and their starting properties
    */
-  Scene setupScene(int width, int height, Paint background) {
+  public Scene setupScene(int width, int height, Paint background) {
     root = new Group();
     isPaused = true;
     currentLevel = LEVELS.get(levelNumber - 1).clone();
@@ -101,7 +105,7 @@ public class Game extends Application {
   /*
    * Handle the game's movements. If updateShapes returns true, means game needs to be reset
    */
-  void step(double elapsedTime) {
+  public void step(double elapsedTime) {
     if (!gameOver) {
       if (collisionChecker.updateShapes(elapsedTime, isPaused)) {
         resetGame();
@@ -293,20 +297,20 @@ public class Game extends Application {
     isPaused = true;
   }
 
-  protected void setCurrentLevel(int newLevel) {
+  public void setCurrentLevel(int newLevel) {
     levelNumber = newLevel;
   }
 
-  protected Level getCurrentLevel() {
+  public Level getCurrentLevel() {
     return currentLevel;
   }
 
-  protected Group getRoot() {
+  public Group getRoot() {
     return root;
   }
 
   /* For testing purposes */
-  protected Scene getMyScene() {
+  public Scene getMyScene() {
     return myScene;
   }
 
