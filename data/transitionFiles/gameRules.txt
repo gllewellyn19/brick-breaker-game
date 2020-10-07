@@ -1,0 +1,8 @@
+Welcome to Nature themed Breakout!
+Don't let the moving ball go below the screen.
+Use the right and left arrow keys to move the paddle.
+Use the keys: 1,2,3 to move to different levels.
+Hit the right bricks and you'll get power ups - try to catch them.
+Try to beat your highest score!
+
+

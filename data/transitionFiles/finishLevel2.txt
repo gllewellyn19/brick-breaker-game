@@ -1,0 +1,3 @@
+Successfully finished the second level!
+Ready for the last level?
+Try moving your paddle up and down!
