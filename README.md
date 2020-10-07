@@ -1,6 +1,8 @@
 Brick Breaker Game
 ====
 
+### NOTE: Project is work in progress and instructions on how to run are also a work in progress. For now, code is here to view. 
+
 This project implements the game of Breakout in a creative way that utilizes inheritance hierarchy and abstraction.
 
 Authors: Grace Llewellyn and Priya Rathinavelu. Refactored by Grace Llewellyn alone after the project was submitted in class 
