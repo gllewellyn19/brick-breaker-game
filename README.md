@@ -18,6 +18,6 @@ Cheat keys: "R" resets ball/paddle location, "space" pauses/unpauses game, "G" i
 #### Notes on adding new components:
 Adding a new level: Create a new level class and that implements the abstract level class and passes all the needed values into initialize (can use Level's version). If have a list or something that needs a deep copy as a local variable of your level, override the clone method to make a deep copy of that variable
 
-Adding a new powerup brick: Create a brick that extends the BrickWithPowerUp class and overrides the destory brick function
+Adding a new powerup brick: Create a brick that extends the BrickWithPowerUp class and overrides the destroyBrickWhenPaddleHits function
 
 Adding a new brick with special action: Create a brick that extends the brickWithSpecialAction class and override do special action
