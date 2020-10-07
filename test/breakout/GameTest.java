@@ -100,18 +100,6 @@ public class GameTest extends DukeApplicationTest {
         assertEquals(10, ball.getCenterY());
     }
 
-   /* @Test
-    public void testBallBounceOffBrickAndWallCorner(){
-        ball.setCenterX(15);
-        ball.setCenterY(95);
-        sleep(3, TimeUnit.SECONDS);
-        myGame.step(.25);
-        sleep(3, TimeUnit.SECONDS);
-        myGame.step(.25);
-        sleep(3, TimeUnit.SECONDS);
-        System.out.println("x"+ball.getCenterX()+"y"+ball.getCenterY());
-    }*/
-
     @Test
     public void testBallBounceOffWall(){
         ball.setCenterX(0);
@@ -177,13 +165,9 @@ public class GameTest extends DukeApplicationTest {
         while(currentLevel.getNumLives() > 1) {
             currentLevel.decreaseLivesByOne();
         }
-       // myGame.step(1);
         javafxRun(() -> myGame.step(1));
-        //System.out.println(currentLevel.checkLevelOver());
         assertTrue(currentLevel.checkLevelOver());
     }
-
-    // tests to make sure power up happens when brick hits paddle, power ups happen, cheats keys
 
 
     //assumes that going to hit brick that only has one hit (can be power up or not)

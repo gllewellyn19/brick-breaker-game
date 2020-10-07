@@ -26,7 +26,7 @@ public class LevelTwo extends Level {
   public static final int X_LOCATION_OBSTACLE = Game.FRAME_SIZE/2 - WIDTH_OBSTACLE/2;
   public static final int DEFAULT_SPEED_OBSTACLES = 30;
 
-  private List<Obstacle> obstacles;
+  private Obstacle movingObstacle;
 
   public LevelTwo() {
     super(3, 2, Game.FRAME_SIZE, Game.FRAME_SIZE, Color.BLUE, Color.YELLOWGREEN,
@@ -34,7 +34,6 @@ public class LevelTwo extends Level {
         List.of(new ExplodingBrick(), new GameEndingBrick()),
         "brickConfigurations/levelTwoBricks.txt",
         List.of("brickIce.jpg", "brickBranch.jpg", "brickWood.jpg"));
-    obstacles = new ArrayList<>();
   }
 
   @Override
@@ -51,9 +50,9 @@ public class LevelTwo extends Level {
     Rectangle rectForMiddleScreen = new Rectangle(
         X_LOCATION_OBSTACLE, Y_LOCATION_OBSTACLE, WIDTH_OBSTACLE, HEIGHT_OBSTACLE);
     rectForMiddleScreen.setFill(Color.BLACK);
-    rectForMiddleScreen.setId("obstacleLevelTwo"+obstacles.size());
+    rectForMiddleScreen.setId("obstacleLevelTwo");
     root.getChildren().add(rectForMiddleScreen);
-    obstacles.add(new Obstacle(rectForMiddleScreen, 1, 0, DEFAULT_SPEED_OBSTACLES));
+    movingObstacle = new Obstacle(rectForMiddleScreen, 1, 0, DEFAULT_SPEED_OBSTACLES);
   }
 
   /*
@@ -62,28 +61,9 @@ public class LevelTwo extends Level {
   @Override
   protected void doSpecialFeature(double elapsedTime, boolean isPaused) {
     if (!isPaused) {
-      for (Obstacle o : obstacles) {
-        checkIfCollisionObstacle(o);
-        o.move(elapsedTime);
-      }
+      movingObstacle.move(elapsedTime, super.getBall());
     }
   }
 
-  /*
-   * Checks to see if there is a collision with any of the obstacles then bounces the ball correctly
-   */
-  private void checkIfCollisionObstacle(Obstacle obstacle) {
-    if (obstacle.checkCollisionBall(super.getBallShape())) {
-      Collision.determineIfSwitchXOrYFromBallRectangleHit(obstacle.getObstacleShape(), super.getBall());
-    }
-  }
-
-  @Override
-  public LevelTwo clone() {
-    LevelTwo clone;
-    clone = (LevelTwo) super.clone();
-    clone.obstacles = new ArrayList<>(obstacles);
-    return clone;
-  }
 
 }

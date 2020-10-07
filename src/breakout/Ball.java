@@ -79,6 +79,20 @@ public class Ball {
     yDirection = -1;
   }
 
+  /*
+   * Calculates the new x coordinate of the ball for a step
+   */
+  public double getNewX(double elapsedTime) {
+    return ballShape.getCenterX() + xDirection * ballSpeed * elapsedTime;
+  }
+
+  /*
+   * Calculates the new y coordinate of the ball for a step
+   */
+  public double getNewY(double elapsedTime) {
+    return ballShape.getCenterY() + yDirection * ballSpeed * elapsedTime;
+  }
+
   protected Circle getBallShape() {
     return ballShape;
   }

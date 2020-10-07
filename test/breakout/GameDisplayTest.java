@@ -4,13 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import util.DukeApplicationTest;
@@ -20,10 +17,7 @@ public class GameDisplayTest extends DukeApplicationTest {
   private final Game myGame = new Game();
   // keep created scene to allow mouse and keyboard events
   private Scene myScene;
-  private Circle ball;
-  private Rectangle paddle;
   private Level currentLevel;
-  private Rectangle brick;
 
   @Override
   public void start (Stage stage) {
@@ -32,9 +26,6 @@ public class GameDisplayTest extends DukeApplicationTest {
     stage.setScene(myScene);
     stage.show();
 
-    // find individual items within game by ID (must have been set in your code using setID())
-    ball = lookup("#ball").query();
-    paddle = lookup("#paddle").query();
     currentLevel = myGame.getCurrentLevel();
   }
 
@@ -65,7 +56,7 @@ public class GameDisplayTest extends DukeApplicationTest {
       myGame.step(1);
       myGame.step(1);
       myGame.step(1);
-      String scoreDisp = currentLevel.getGameDisplay().HIGHEST_SCORE_INDICATOR + getHighScore();
+      String scoreDisp = GameDisplay.HIGHEST_SCORE_INDICATOR + getHighScore();
       assertEquals(scoreDisp, currentLevel.getGameDisplay().getHighestScoreDisplay().getText());
   }
 
@@ -95,7 +86,7 @@ public class GameDisplayTest extends DukeApplicationTest {
     myGame.step(1);
     myGame.step(1);
     int currentScore = myGame.getCurrentLevel().getGameDisplay().getScore();
-    String scoreDisp = myGame.getCurrentLevel().getGameDisplay().SCORE_INDICATOR + currentScore;
+    String scoreDisp = GameDisplay.SCORE_INDICATOR + currentScore;
     assertEquals(myGame.getCurrentLevel().getGameDisplay().getScoreDisplay().getText(), scoreDisp);
   }
 
@@ -109,7 +100,7 @@ public class GameDisplayTest extends DukeApplicationTest {
   }
 
   @Test
-  void testAddHeart() { //NOTE need getter method for hearts
+  void testAddHeart() {
     press(myScene, KeyCode.SPACE); // unpause game because starts paused
     int initialNumberHearts = currentLevel.getGameDisplay().getHeartsForLives().size();
     javafxRun(() -> currentLevel.getGameDisplay().addHeart(currentLevel.getRoot(), 1));
@@ -127,7 +118,7 @@ public class GameDisplayTest extends DukeApplicationTest {
 
   @Test
   void testLevelDisplay() {
-    String scoreDisp = myGame.getCurrentLevel().getGameDisplay().LEVEL_INDICATOR + currentLevel.getLevelNumber();
+    String scoreDisp = GameDisplay.LEVEL_INDICATOR + currentLevel.getLevelNumber();
     assertEquals(scoreDisp, currentLevel.getGameDisplay().getLevelDisplay().getText() );
   }
 

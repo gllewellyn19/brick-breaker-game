@@ -23,7 +23,6 @@ import javafx.scene.shape.Rectangle;
  */
 public abstract class Level implements Cloneable {
 
-  private final int startingNumLives;
   private int numLives;
   private final int levelNumber;
   private final Ball ball;
@@ -40,7 +39,6 @@ public abstract class Level implements Cloneable {
     gameBrickDisplay = new GameBrickDisplay(height, width, potentialSpecialBricks,
         brickFileLocation, brickPatterns);
     this.numLives = numLives;
-    this.startingNumLives = numLives;
     this.levelNumber = level;
     ball = new Ball(ballColor, width / 2,
         height - Paddle.PADDLE_HEIGHT - Ball.DEFAULT_BALL_RADIUS - 1,
@@ -57,7 +55,6 @@ public abstract class Level implements Cloneable {
    */
   void initializeLevel(Group root, int currentScore) {
     this.root = root;
-    numLives = startingNumLives;
     ball.initializeBall(root);
     paddle.initializePaddle(root);
     gameDisplay.initializeGameDisplay(root, levelNumber, currentScore);

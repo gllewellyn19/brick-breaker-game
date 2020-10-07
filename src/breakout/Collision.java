@@ -49,23 +49,6 @@ public class Collision {
     return checkBallWallCollision(ballShape.getCenterX(), ballShape.getCenterY(), isPaused, elapsedTime);
   }
 
-
-  /*
-   * Calculates the new x coordinate of the ball for a step
-   */
-  private double getNewX(double elapsedTime) {
-    Ball b = currentLevel.getBall();
-    return ballShape.getCenterX() + b.getBallXDirection() * b.getBallSpeed() * elapsedTime;
-  }
-
-  /*
-   * Calculates the new y coordinate of the ball for a step
-   */
-  private double getNewY(double elapsedTime) {
-    Ball b = currentLevel.getBall();
-    return ballShape.getCenterY() + b.getBallYDirection() * b.getBallSpeed() * elapsedTime;
-  }
-
   /*
    * Checks to see if the x or y is out of bounds. Only updates the balls shapes if isPaused is false
    * or ball in bounds. Returns true if the ball goes out of bounds at the bottom and the game needs
@@ -73,8 +56,8 @@ public class Collision {
    */
   private boolean checkBallWallCollision(double x, double y, boolean isPaused, double elapsedTime) {
     if (checkCanMoveBallAndWallCollisions(x, y, isPaused)) {
-      ballShape.setCenterX(getNewX(elapsedTime));
-      ballShape.setCenterY(getNewY(elapsedTime));
+      ballShape.setCenterX(currentLevel.getBall().getNewX(elapsedTime));
+      ballShape.setCenterY(currentLevel.getBall().getNewY(elapsedTime));
       return false;
     }
     return !isPaused;

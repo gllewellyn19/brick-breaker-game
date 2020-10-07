@@ -30,9 +30,10 @@ class ObstacleTest {
   void moveTest() {
     double initialX = myObstacle.getObstacleShape().getX();
     double initialY = myObstacle.getObstacleShape().getY();
-    myObstacle.move(1.0);
+    Ball b = new Ball(Color.BLACK, 20, 20, 5);
+    b.initializeBall(new Group());
+    myObstacle.move(1.0, b);
     assertEquals(initialX + 20, myObstacle.getObstacleShape().getX());
     assertEquals(initialY + 20, myObstacle.getObstacleShape().getY());
-
   }
 }

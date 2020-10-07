@@ -29,7 +29,7 @@ class LevelTwoTest extends DukeApplicationTest {
     myScene = myGame.getMyScene();
 
     ballShape = lookup("#ball").query();
-    obstacle = lookup("#obstacleLevelTwo0").query();
+    obstacle = lookup("#obstacleLevelTwo").query();
   }
 
   @Test

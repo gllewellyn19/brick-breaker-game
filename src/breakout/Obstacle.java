@@ -40,7 +40,8 @@ public class Obstacle {
   /*
    * Moves the obstacle, making sure that it bounces off the edges
    */
-  protected void move(double elapsedTime) {
+  protected void move(double elapsedTime, Ball ball) {
+    checkIfCollisionObstacle(ball);
     double potentialNewX = calculateNewX(elapsedTime);
     double potentialNewY = calculateNewY(elapsedTime);
     changeDirectionIfNeeded(potentialNewX, potentialNewY);
@@ -72,6 +73,15 @@ public class Obstacle {
     }
     else if (newY <= 0 || (newY + obstacleShape.getHeight()) >= Game.FRAME_SIZE) {
       yDirection *= -1;
+    }
+  }
+
+  /*
+   * Checks to see if there is a collision with the obstacle then bounces the ball correctly
+   */
+  private void checkIfCollisionObstacle(Ball ball) {
+    if (checkCollisionBall(ball.getBallShape())) {
+      Collision.determineIfSwitchXOrYFromBallRectangleHit(obstacleShape, ball);
     }
   }
 
