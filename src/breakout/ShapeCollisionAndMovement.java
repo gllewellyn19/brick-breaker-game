@@ -23,7 +23,7 @@ import javafx.scene.shape.Rectangle;
  * accordingly.
  */
 
-public class Collision {
+public class ShapeCollisionAndMovement {
 
   private final Level currentLevel;
   private final Circle ballShape;
@@ -31,7 +31,7 @@ public class Collision {
   private final Group root;
   private final Scene myScene;
 
-  public Collision(Level currentLevel, Group root, Scene myScene) {
+  public ShapeCollisionAndMovement(Level currentLevel, Group root, Scene myScene) {
     this.ballShape = currentLevel.getBallShape();
     this.paddleShape = currentLevel.getPaddleShape();
     this.currentLevel = currentLevel;

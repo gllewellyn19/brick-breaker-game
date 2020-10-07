@@ -3,7 +3,7 @@ package breakout.Levels;
 import breakout.Bricks.IncreaseBallSizeBrick;
 import breakout.Bricks.IncreaseBallSpeedBrick;
 import breakout.Bricks.IncreasePaddleSizeBrick;
-import breakout.Collision;
+import breakout.ShapeCollisionAndMovement;
 import breakout.Game;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +76,7 @@ public class LevelOne extends Level {
   @Override
   public void doSpecialFeature(double elapsedTime, boolean isPaused) {
     if (!isPaused && obstacle.checkCollisionBall(super.getBallShape())) {
-      Collision.determineIfSwitchXOrYFromBallRectangleHit(obstacle.getObstacleShape(),
+      ShapeCollisionAndMovement.determineIfSwitchXOrYFromBallRectangleHit(obstacle.getObstacleShape(),
           super.getBall());
     }
   }

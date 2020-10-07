@@ -1,7 +1,7 @@
 package breakout.Levels;
 
 import breakout.Ball;
-import breakout.Collision;
+import breakout.ShapeCollisionAndMovement;
 import breakout.Game;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -84,7 +84,7 @@ public class Obstacle {
    */
   private void checkIfCollisionObstacle(Ball ball) {
     if (checkCollisionBall(ball.getBallShape())) {
-      Collision.determineIfSwitchXOrYFromBallRectangleHit(obstacleShape, ball);
+      ShapeCollisionAndMovement.determineIfSwitchXOrYFromBallRectangleHit(obstacleShape, ball);
     }
   }
 

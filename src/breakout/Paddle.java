@@ -108,7 +108,7 @@ public class Paddle {
     this.paddleShift = this.paddleShift + PADDLE_SHIFT_AMOUNT;
   }
 
-  protected void setPaddleShiftDefault() {
+  public void setPaddleShiftDefault() {
     this.paddleShift = PADDLE_SHIFT_AMOUNT;
   }
 

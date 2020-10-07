@@ -6,7 +6,6 @@ import breakout.Game;
 import breakout.Paddle;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Assertions;
@@ -22,8 +21,7 @@ class LevelTest extends DukeApplicationTest {
   private final Game myGame = new Game();
   // keep created scene to allow mouse and keyboard events
   private Scene myScene;
-  private Circle ball;
-  private Rectangle paddle;
+  private Rectangle paddleShape;
   private Level currentLevel;
 
   @Override
@@ -33,8 +31,7 @@ class LevelTest extends DukeApplicationTest {
     stage.setScene(myScene);
     stage.show();
     // find individual items within game by ID (must have been set in your code using setID())
-    ball = lookup("#ball").query();
-    paddle = lookup("#paddle").query();
+    paddleShape = lookup("#paddle").query();
     currentLevel = myGame.getCurrentLevel();
   }
 
@@ -69,19 +66,22 @@ class LevelTest extends DukeApplicationTest {
   @Test
   public void testPaddleMovement() {
     // WHEN, move it right by "pressing" the right arrow
+    myGame.setGameOverFalse();
+    myGame.unpauseGameIfPaused();
+    currentLevel.getPaddle().setPaddleShiftDefault();
     press(myScene, KeyCode.RIGHT);
     //check its X coordinate has increased by the proper amount
-    Assertions.assertEquals(165+ Paddle.PADDLE_SHIFT_AMOUNT, paddle.getX());
+    Assertions.assertEquals(165 + Paddle.PADDLE_SHIFT_AMOUNT, paddleShape.getX());
     //check if x coordinate has decreased back to center
     press(myScene, KeyCode.LEFT);
-    assertEquals(165, paddle.getX());
+    assertEquals(165, paddleShape.getX());
   }
 
   @Test
   public void testPaddleOutOfBounds() {
-    paddle.setX(0);
+    paddleShape.setX(0);
     press(myScene, KeyCode.LEFT);
-    assertEquals(0, paddle.getX());
+    assertEquals(0, paddleShape.getX());
   }
 
 

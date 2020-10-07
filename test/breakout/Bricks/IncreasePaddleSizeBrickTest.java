@@ -43,6 +43,8 @@ class IncreasePaddleSizeBrickTest extends DukeApplicationTest {
   void hitBrickTest() {
     ballShape.setCenterX(150);
     ballShape.setCenterY(150);
+    currentLevel.getBall().setXDirection(-1);
+    currentLevel.getBall().setYDirection(-1);
     paddleShape.setX(130);
     press(myScene, KeyCode.SPACE);
     myGame.step(.5);

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import breakout.Game;
 import breakout.Levels.Level;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -42,6 +43,8 @@ class IncreaseBallSpeedBrickTest extends DukeApplicationTest {
   void hitBrickTest() {
     ballShape.setCenterX(270);
     ballShape.setCenterY(150);
+    currentLevel.getBall().setXDirection(-1);
+    currentLevel.getBall().setYDirection(-1);
     press(myScene, KeyCode.SPACE);
     myGame.step(.5);
     myGame.step(.5);

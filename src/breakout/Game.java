@@ -59,7 +59,7 @@ public class Game extends Application {
   private Level currentLevel;
   private Group root;
   private int currentScore = 0;
-  private Collision collisionChecker;
+  private ShapeCollisionAndMovement collisionChecker;
   private boolean onTransitionScreen;
 
   /**
@@ -98,7 +98,7 @@ public class Game extends Application {
 
     myScene = new Scene(root, width, height, background);
     myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
-    collisionChecker = new Collision(currentLevel, root, myScene);
+    collisionChecker = new ShapeCollisionAndMovement(currentLevel, root, myScene);
     return myScene;
   }
 
@@ -245,7 +245,7 @@ public class Game extends Application {
    * Checks if the game is paused and unpauses it if it is paused by resetting the paddle shift
    * amount and ball speed
    */
-  private void unpauseGameIfPaused() {
+  public void unpauseGameIfPaused() {
     if (isPaused) {
       currentLevel.getBall().setBallSpeedDefault();
       currentLevel.getPaddle().setPaddleShiftDefault();
@@ -313,6 +313,8 @@ public class Game extends Application {
   public Scene getMyScene() {
     return myScene;
   }
+
+  public void setGameOverFalse() { gameOver = false; }
 
   /*
    * Displays a warning message in the middle of the screen

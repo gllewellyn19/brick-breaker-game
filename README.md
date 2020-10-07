@@ -1,4 +1,4 @@
-game
+Brick Breaker Game
 ====
 
 This project implements the game of Breakout in a creative way that utilizes inheritance hierarchy and abstraction.
