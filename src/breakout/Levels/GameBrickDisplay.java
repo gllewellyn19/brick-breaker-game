@@ -78,7 +78,7 @@ public class GameBrickDisplay {
     List<List<String>> brickMatrix = new ArrayList<>();
     BufferedReader reader;
     try {
-      File file = new File(getClass().getClassLoader().getResource(fileName).getFile());
+      File file = new File(getFilePath(fileName));
       reader = new BufferedReader(new FileReader(file));
       String line = reader.readLine();
       while (line != null) {
@@ -93,6 +93,15 @@ public class GameBrickDisplay {
     }
     brickMatrix.add(new ArrayList<>());
     return brickMatrix;
+  }
+
+  /*
+   * Finds the file path in specific way that works for running as jar file
+   */
+  private String getFilePath (String fileName) {
+    int startAbsolute =  (new File("").getAbsolutePath()).indexOf("brick-breaker-game");
+    return (new File("").getAbsolutePath()).substring(0, startAbsolute) +
+        "/brick-breaker-game/data/"+fileName;
   }
 
   /*

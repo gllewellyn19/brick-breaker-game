@@ -218,8 +218,7 @@ public void increaseScore(int amountToIncreaseBy) {
   private int findHighestScore(Group root) {
     int highestValue = 0;
     try {
-      File file = new File(
-          getClass().getClassLoader().getResource(HIGHEST_SCORE_FILE).getFile());
+      File file = new File(getFilePath());
       BufferedReader reader = new BufferedReader(new FileReader(file));
       String line = reader.readLine();
       while (line != null) {
@@ -229,9 +228,19 @@ public void increaseScore(int amountToIncreaseBy) {
       reader.close();
     } catch (NullPointerException | IOException e) {
       Game.displayWarningMessage(root, "File for high scores not found", frameHeight, frameWidth);
+      setupSuccessful = false;
     }
     highScore = highestValue;
     return highestValue;
+  }
+
+  /*
+   * Finds the file path in specific way that works for running as jar file
+   */
+  private String getFilePath () {
+    int startAbsolute =  (new File("").getAbsolutePath()).indexOf("brick-breaker-game");
+    return (new File("").getAbsolutePath()).substring(0, startAbsolute) +
+        "/brick-breaker-game/data/"+HIGHEST_SCORE_FILE;
   }
 
   /*

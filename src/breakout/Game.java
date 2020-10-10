@@ -224,6 +224,7 @@ public class Game extends Application {
     }
 
     if (code == KeyCode.A) {
+      levelNumber = 1;
       restartGame(levelNumber);
     }
   }

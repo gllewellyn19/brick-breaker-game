@@ -15,7 +15,7 @@ Data files needed: Everything in the data file (includes what is in the subfolde
 Key/Mouse inputs: Right arrow to move paddle to the right, left arrow
 to move paddle to the left (and cheat keys, see below). No mouse inputs 
 
-Cheat keys: "R" resets ball/paddle location, "space" pauses/unpauses game, "G" increases the paddle size by the default size increase amount, "1-3" changes the level number, "L" adds a life, "A" restarts the game (everything in default positions and resets the lives, score, etc.), "S" increases the ball size, "W" sets the ball size back to default, "P" drops a brick with a power up for the paddle to catch (does nothing if no bricks with power ups), "D" destroys the first brick (first brick is the left most brick on the top level)
+Cheat keys: "R" resets ball/paddle location, "space" pauses/unpauses game, "G" increases the paddle size by the default size increase amount, "1-3" changes the level number, "L" adds a life, "A" restarts the game (everything in default positions and resets the lives, score, level, etc.), "S" increases the ball size, "W" sets the ball size back to default, "P" drops a brick with a power up for the paddle to catch (does nothing if no bricks with power ups), "D" destroys the first brick (first brick is the left most brick on the top level)
 
 #### Notes on adding new components:
 Adding a new level: Create a new level class and that implements the abstract level class and passes all the needed values into initialize (can use Level's version). If have a list or something that needs a deep copy as a local variable of your level, override the clone method to make a deep copy of that variable
