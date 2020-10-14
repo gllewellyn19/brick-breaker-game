@@ -4,8 +4,11 @@ This project implements the game of Breakout in a creative way that utilizes inh
 
 Authors: Grace Llewellyn and Priya Rathinavelu. Refactored by Grace Llewellyn alone after the project was submitted in class 
 
+![Screenshot of Game](levelOneScreenshot.png)
+
 ### Running the Program
 ####  Instructions
+NOTE: This readme is a work in progress along with this project
 0. Download OpenJDK **full** package [here](https://bell-sw.com/pages/downloads/#/java-14-current). Download OpenJFX [here](https://openjfx.io/). 
 1. Clone the git repository at [github.com/gllewellyn19/brick-breaker-game](https://github.com/gllewellyn19/brick-breaker-game)
 2. Open your terminal and navigate into the cloned repository
